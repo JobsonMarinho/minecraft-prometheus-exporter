@@ -43,8 +43,4 @@ public class WorldSize extends WorldMetric {
         return true;
     }
 
-    @Override
-    public boolean isFoliaCapable() {
-        return true;
-    }
 }

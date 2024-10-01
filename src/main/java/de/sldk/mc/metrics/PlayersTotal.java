@@ -25,8 +25,4 @@ public class PlayersTotal extends Metric {
         return true;
     }
 
-    @Override
-    public boolean isFoliaCapable() {
-        return true;
-    }
 }

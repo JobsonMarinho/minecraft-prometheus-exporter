@@ -77,9 +77,6 @@ public abstract class Metric {
         return false;
     }
 
-    public boolean isFoliaCapable() {
-        return false;
-    }
 
     private void logException(Exception e) {
         final Logger log = plugin.getLogger();

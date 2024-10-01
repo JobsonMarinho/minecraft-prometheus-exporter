@@ -33,8 +33,7 @@ public class PrometheusExporterConfig {
             metricConfig("tick_duration_min", false, TickDurationMinCollector::new),
             metricConfig("tick_duration_max", true, TickDurationMaxCollector::new),
 
-            metricConfig("player_online", false, PlayerOnline::new),
-            metricConfig("player_statistic", false, PlayerStatistics::new));
+            metricConfig("player_online", false, PlayerOnline::new));
 
     private final PrometheusExporter prometheusExporter;
 
@@ -66,15 +65,8 @@ public class PrometheusExporterConfig {
                     try {
                         Boolean enabled = get(metricConfig);
 
-                        var foliaSupported = metric.isFoliaCapable();
-
-                        if (Boolean.TRUE.equals(enabled)) {
-                            if (isFolia() && !foliaSupported) {
-                                prometheusExporter.getLogger().warning("Metric " + metricName + " is not supported in Folia and will not be enabled");
-                                return;
-                            }
+                        if (Boolean.TRUE.equals(enabled))
                             metric.enable();
-                        }
 
                         prometheusExporter.getLogger().fine("Metric " + metricName + " enabled: " + enabled);
 
@@ -90,16 +82,4 @@ public class PrometheusExporterConfig {
         return config.get(prometheusExporter.getConfig());
     }
 
-    /**
-     * @return true if the server is running Folia
-     * @see <a href="https://docs.papermc.io/paper/dev/folia-support">Folia Support</a>
-     */
-    private static boolean isFolia() {
-        try {
-            Class.forName("io.papermc.paper.threadedregions.RegionizedServer");
-            return true;
-        } catch (ClassNotFoundException e) {
-            return false;
-        }
-    }
 }

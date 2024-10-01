@@ -10,7 +10,7 @@
 
 A **Bukkit plugin** to exports Minecraft server metrics to Prometheus.
 
-Built for Paper, Spigot, Bukkit, Folia (experimental) and other forks.
+Built for Paper, Spigot, Bukkit and other forks.
 
 If you're running multiple Minecraft servers behind a BungeeCord proxy, you might also be interested in [Bungeecord Prometheus Exporter](https://github.com/weihao/bungeecord-prometheus-exporter) for additional metrics!
 
@@ -177,7 +177,6 @@ This doesn't support all statistics in the list because they are provided by the
 
 - Java 17 is required for the latest version of the plugin.
 - There is a known [issue](https://github.com/sladkoff/minecraft-prometheus-exporter/issues/197) with Azul JVM.
-- There is currently rudimentary support for Folia servers. Only selected metrics are supported.
 - The plugin has been tested recently on
   - Minecraft 1.20.1 
   - Minecraft 1.20.4
